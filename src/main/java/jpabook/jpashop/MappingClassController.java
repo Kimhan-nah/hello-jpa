@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MappingClassController {
-  @GetMapping("/mapping/post")
-  public String findPost() {
-    return "get post";
+  @GetMapping("/mapping/post/{postId}")
+  public String findPost(@PathVariable String postId) {
+    return "get postId=" + postId;
   }
 
   @PostMapping("mapping/post")
@@ -14,14 +14,14 @@ public class MappingClassController {
     return "add post";
   }
 
-  @DeleteMapping("mapping/post")
-  public String removePost() {
-    return "remove Post";
+  @DeleteMapping("mapping/post/{postId}")
+  public String deletePost(@PathVariable String postId) {
+    return "delete postId=" + postId;
   }
 
-  @PutMapping("mapping/post")
-  public String updatePost() {
-    return "update Post";
+  @PutMapping("mapping/post/{postId}")
+  public String updatePost(@PathVariable String postId) {
+    return "update postId=" + postId;
   }
 
 }
